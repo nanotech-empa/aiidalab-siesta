@@ -1,0 +1,38 @@
+set -x
+
+NOTEBOOK_SRC="/opt/configs/InstallG100.ipynb"
+NOTEBOOK_DST="/home/jovyan/InstallG100.ipynb"
+
+REPO_DIR="/home/jovyan/apps/aiidalab-mfa-cineca"
+REPO_URL="https://github.com/nanotech-empa/aiidalab-mfa-cineca.git"
+
+# -------------------------------------------------
+# Ensure InstallG100.ipynb is present
+# -------------------------------------------------
+if [ ! -f "$NOTEBOOK_DST" ]; then
+    if [ -f "$NOTEBOOK_SRC" ]; then
+        echo "Copying InstallG100.ipynb to /home/jovyan"
+        cp "$NOTEBOOK_SRC" "$NOTEBOOK_DST"
+        chown jovyan:users "$NOTEBOOK_DST"
+    else
+        echo "WARNING: $NOTEBOOK_SRC not found"
+    fi
+else
+    echo "InstallG100.ipynb already present"
+fi
+
+# -------------------------------------------------
+# Ensure aiidalab-mfa-cineca repository is present and up to date
+# -------------------------------------------------
+if [ ! -d "$REPO_DIR/.git" ]; then
+    echo "Cloning aiidalab-mfa-cineca repository"
+    mkdir -p "$(dirname "$REPO_DIR")"
+    git clone "$REPO_URL" "$REPO_DIR"
+    chown -R jovyan:users "$REPO_DIR"
+else
+    echo "Updating aiidalab-mfa-cineca repository"
+    cd "$REPO_DIR"
+    git fetch origin
+    git pull --ff-only
+fi
+

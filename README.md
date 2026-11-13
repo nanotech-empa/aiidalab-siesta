@@ -54,3 +54,25 @@ To stop teh server type:
 ```
 aiidalab-launch stop --profile siesta2026
 ```
+
+## Software attribution and scientific acknowledgements
+
+Please credit [aiidalab-siesta](https://github.com/nanotech-empa/aiidalab-siesta) and its
+[contributors](https://github.com/nanotech-empa/aiidalab-siesta/graphs/contributors),
+and identify the release or immutable commit used. Existing author,
+contributor and funding acknowledgements remain authoritative.
+
+This revision has no top-level licence file. Preserve existing source
+notices and confirm applicable reuse terms with the maintainers; this
+citation guidance does not supply a licence.
+
+For research carried out using this environment or the resulting workflows,
+acknowledge [AiiDA](https://github.com/nanotech-empa/.github/blob/main/CITATION_GUIDANCE.md#aiida) and [AiiDAlab](https://github.com/nanotech-empa/.github/blob/main/CITATION_GUIDANCE.md#aiidalab)
+when each platform was actually used, following their respective citation
+guidance. Cite the scientific software and methods actually used as well.
+
+Credit this development environment separately from AiiDAlab, aiidalab-launch, SIESTA and smallstep, which retain their own authorship and licence notices.
+
+The [shared credit guide](https://github.com/nanotech-empa/.github/blob/main/CITATION_GUIDANCE.md) keeps software attribution, licence
+compliance and scientific citation requests separate. Scientific citation
+requests are not additional MIT licence conditions.
